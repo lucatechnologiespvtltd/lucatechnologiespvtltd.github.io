@@ -2,189 +2,227 @@
 <html>
 <head>
     <title>LUCA Technologies</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Arial;
-            margin: 0;
             color: white;
-            scroll-behavior: smooth;
-            background-color: black;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
         }
 
         header {
-            background-color: black;
-            padding: 30px;
+            padding: 40px 20px;
             text-align: center;
-            border-bottom: 1px solid #222;
         }
 
         .logo-img {
-            width: 180px;
+            width: 160px;
             margin-bottom: 10px;
         }
 
         .tagline {
-            color: #bfbfbf;
-            font-size: 16px;
+            color: #ccc;
+            font-size: 14px;
             letter-spacing: 2px;
         }
 
         nav {
-            background-color: #0a0a0a;
+            background: rgba(0,0,0,0.4);
             padding: 15px;
             text-align: center;
             position: sticky;
             top: 0;
-            border-bottom: 1px solid #222;
+            backdrop-filter: blur(10px);
         }
 
         nav a {
             color: #ccc;
-            margin: 20px;
+            margin: 10px;
             text-decoration: none;
             font-weight: bold;
-            letter-spacing: 1px;
         }
 
         nav a:hover {
-            color: white;
+            color: #fff;
         }
 
         section {
             padding: 80px 20px;
             text-align: center;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
         }
 
         h2 {
             margin-bottom: 20px;
             font-size: 28px;
-            letter-spacing: 2px;
         }
 
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                        url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
+            url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
             background-size: cover;
-            background-position: center;
-            padding: 150px 20px;
+            padding: 140px 20px;
         }
 
         .btn {
-            background-color: white;
-            color: black;
+            background: #00c3ff;
+            color: white;
             padding: 12px 30px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 3px;
+            border-radius: 8px;
+            display: inline-block;
         }
 
-        .services, .tech, .projects {
+        .btn:hover {
+            background: #009ed1;
+        }
+
+        .grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .card {
-            background-color: #111;
+            background: rgba(255,255,255,0.08);
             padding: 25px;
             margin: 15px;
             width: 260px;
-            border-radius: 5px;
-            border: 1px solid #222;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
         }
 
         .card:hover {
-            border: 1px solid #555;
+            transform: translateY(-5px);
         }
 
         footer {
-            background-color: #000;
             padding: 30px;
             text-align: center;
-            border-top: 1px solid #222;
             margin-top: 40px;
+            background: rgba(0,0,0,0.3);
         }
+
+        /* 🔥 MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 5px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 80px 15px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .card {
+                width: 90%;
+            }
+
+            .logo-img {
+                width: 120px;
+            }
+
+            .tagline {
+                font-size: 12px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
 <header>
     <img src="logo.png" class="logo-img">
     <div class="tagline">LUCA TECHNOLOGIES</div>
     <div class="tagline">Innovate. Build. Scale.</div>
-    <div class="tagline">Building Software for the Future</div>
 </header>
 
 <nav>
     <a href="#home">HOME</a>
     <a href="#about">ABOUT</a>
     <a href="#services">SERVICES</a>
-    <a href="#tech">TECHNOLOGIES</a>
+    <a href="#tech">TECH</a>
     <a href="#projects">PROJECTS</a>
     <a href="#contact">CONTACT</a>
 </nav>
 
 <section id="home" class="hero">
-    <h2>Enterprise Software Development Company</h2>
-    <p>We design and build scalable enterprise software, banking systems, APIs, and cloud applications.</p>
+    <h2>Enterprise Software Development</h2>
+    <p>We build scalable enterprise software, APIs, and cloud solutions.</p>
     <br>
     <a href="#contact" class="btn">Contact Us</a>
 </section>
 
 <section id="about">
-    <h2>About LUCA Technologies</h2>
-    <p>LUCA Technologies is a software development company specializing in enterprise applications, banking software, cloud solutions and automation systems.</p>
+    <h2>About Us</h2>
+    <p>LUCA Technologies builds enterprise-grade applications, banking systems, and scalable cloud platforms.</p>
 </section>
 
 <section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-        <div class="card">Enterprise Application Development</div>
-        <div class="card">Banking & Financial Software</div>
-        <div class="card">Web Application Development</div>
+    <h2>Services</h2>
+    <div class="grid">
+        <div class="card">Enterprise Apps</div>
+        <div class="card">Banking Software</div>
+        <div class="card">Web Apps</div>
         <div class="card">Cloud Deployment</div>
-        <div class="card">API Development</div>
-        <div class="card">Software Testing</div>
-        <div class="card">Annual Maintenance</div>
+        <div class="card">APIs</div>
+        <div class="card">Testing</div>
     </div>
 </section>
 
 <section id="tech">
     <h2>Technologies</h2>
-    <div class="tech">
+    <div class="grid">
         <div class="card">Java</div>
         <div class="card">Spring Boot</div>
         <div class="card">React</div>
-        <div class="card">Oracle / MySQL</div>
-        <div class="card">AWS / GCP</div>
-        <div class="card">Docker / Jenkins</div>
-        <div class="card">Microservices</div>
+        <div class="card">MySQL</div>
+        <div class="card">AWS</div>
+        <div class="card">Docker</div>
     </div>
 </section>
 
 <section id="projects">
-    <h2>Our Projects</h2>
-    <div class="projects">
-        <div class="card">Banking Check Deposit System</div>
-        <div class="card">Loan Management System</div>
-        <div class="card">Employee Management System</div>
-        <div class="card">E-Commerce Application</div>
-        <div class="card">REST API Platform</div>
+    <h2>Projects</h2>
+    <div class="grid">
+        <div class="card">Banking System</div>
+        <div class="card">Loan System</div>
+        <div class="card">Employee System</div>
+        <div class="card">E-Commerce</div>
     </div>
 </section>
 
 <section id="contact">
-    <h2>Contact Us</h2>
+    <h2>Contact</h2>
     <p>Email: info.lucatechnologies@gmail.com</p>
-    <p>Location: Hyderabad, India</p>
     <br>
     <a href="mailto:info.lucatechnologies@gmail.com" class="btn">Send Email</a>
 </section>
 
 <footer>
-    <p>© 2026 LUCA Technologies Pvt Ltd</p>
+    <p>© 2026 LUCA Technologies</p>
 </footer>
 
 </body>
