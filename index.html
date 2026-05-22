@@ -36,27 +36,28 @@
             100% { transform: scale(1); opacity: 0; }
         }
 
-        /* NAVBAR FIXED */
+        /* 🔥 NAVBAR PREMIUM */
         .navbar {
             display:flex;
             justify-content:space-between;
             align-items:center;
             padding:10px 15px;
             background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             position: sticky;
             top:0;
             z-index:1000;
         }
 
         .nav-logo { 
-            width:80px; /* slightly reduced for mobile fit */
+            width:80px;
             cursor:pointer;
         }
 
         .nav-right {
             display:flex;
             align-items:center;
+            transition: all 0.4s ease;
         }
 
         .nav-right a {
@@ -70,10 +71,39 @@
 
         .nav-right a:hover { color:white; }
 
+        /* 🔥 HAMBURGER ANIMATION */
         .menu-toggle {
             display:none;
-            font-size:26px;
+            width:30px;
+            height:22px;
             cursor:pointer;
+            position:relative;
+        }
+
+        .menu-toggle span {
+            position:absolute;
+            width:100%;
+            height:3px;
+            background:white;
+            transition:0.3s;
+        }
+
+        .menu-toggle span:nth-child(1){ top:0; }
+        .menu-toggle span:nth-child(2){ top:9px; }
+        .menu-toggle span:nth-child(3){ top:18px; }
+
+        .menu-toggle.active span:nth-child(1){
+            transform: rotate(45deg);
+            top:9px;
+        }
+
+        .menu-toggle.active span:nth-child(2){
+            opacity:0;
+        }
+
+        .menu-toggle.active span:nth-child(3){
+            transform: rotate(-45deg);
+            top:9px;
         }
 
         section {
@@ -132,7 +162,7 @@
             text-align:center;
         }
 
-        /* ✅ WHATSAPP PNG (NO SHAPE CUT) */
+        /* WHATSAPP */
         .whatsapp {
             position: fixed;
             bottom: 20px;
@@ -142,7 +172,7 @@
 
         .whatsapp img {
             width: 70px;
-            height: auto; /* keeps tail visible */
+            height: auto;
             filter: drop-shadow(0 0 10px rgba(0,0,0,0.7));
             transition: 0.3s;
         }
@@ -151,28 +181,38 @@
             transform: scale(1.1);
         }
 
-        /* MOBILE FIX */
+        /* 🔥 MOBILE PREMIUM */
         @media (max-width:768px){
 
-            .menu-toggle { display:block; }
+            .menu-toggle {
+                display:block;
+            }
 
             .nav-right {
                 position:absolute;
-                top:60px;
+                top:65px;
                 left:0;
                 width:100%;
-                background:black;
-                display:none;
+                background: rgba(0,0,0,0.9);
+                backdrop-filter: blur(15px);
+                display:flex;
                 flex-direction:column;
-                text-align:center;
+                align-items:center;
+                transform: translateY(-120%);
+                opacity:0;
             }
 
-            .nav-right.active { display:flex; }
+            .nav-right.active {
+                transform: translateY(0);
+                opacity:1;
+            }
 
             .nav-right a {
-                padding:15px;
-                border-top:1px solid #222;
-                font-size:16px;
+                padding:18px;
+                width:100%;
+                text-align:center;
+                border-bottom:1px solid rgba(255,255,255,0.1);
+                font-size:18px;
             }
 
             .card { width:90%; }
@@ -183,12 +223,10 @@
 
 <body>
 
-<!-- LOADER -->
 <div id="loader">
     <img src="logo.png" class="loader-logo">
 </div>
 
-<!-- NAVBAR -->
 <nav class="navbar">
     <a href="#home">
         <img src="logo.png" class="nav-logo">
@@ -201,10 +239,15 @@
         <a href="#contact">Contact</a>
     </div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="menu-toggle" id="menuBtn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>
 
-<!-- HERO -->
+<!-- REST SAME (UNCHANGED) -->
+
 <section id="home" class="hero">
     <img src="logo.png">
     <h2>We Build Scalable Software for Startups & Businesses</h2>
@@ -215,13 +258,11 @@
        class="btn">Get Your Project</a>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
     <h2>About Us</h2>
     <p>LUCA Technologies builds enterprise-grade applications and cloud platforms.</p>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
     <h2>Services</h2>
     <div class="grid">
@@ -232,7 +273,6 @@
     </div>
 </section>
 
-<!-- WHY US -->
 <section>
     <h2>Why Choose Us</h2>
     <div class="grid">
@@ -243,7 +283,6 @@
     </div>
 </section>
 
-<!-- FOCUS -->
 <section>
     <h2>Our Focus</h2>
     <div class="grid">
@@ -253,7 +292,6 @@
     </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
     <h2>Contact</h2>
     <p>Email: info.lucatechnologies@gmail.com</p>
@@ -265,7 +303,6 @@
     <p>© 2026 LUCA Technologies | Built with Passion 🚀</p>
 </footer>
 
-<!-- ✅ WHATSAPP PNG WITH AUTO MESSAGE -->
 <a class="whatsapp"
    href="https://wa.me/917702535277?text=Hi%20I%20visited%20your%20website%20and%20need%20a%20project"
    target="_blank">
@@ -281,6 +318,7 @@ window.onload = function () {
 
 function toggleMenu() {
     document.getElementById("navMenu").classList.toggle("active");
+    document.getElementById("menuBtn").classList.toggle("active");
 }
 </script>
 
