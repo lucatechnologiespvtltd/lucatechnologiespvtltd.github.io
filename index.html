@@ -36,12 +36,12 @@
             100% { transform: scale(1); opacity: 0; }
         }
 
-        /* NAVBAR */
+        /* NAVBAR FIXED */
         .navbar {
             display:flex;
             justify-content:space-between;
             align-items:center;
-            padding:15px 20px;
+            padding:10px 15px;
             background: rgba(0,0,0,0.6);
             backdrop-filter: blur(10px);
             position: sticky;
@@ -50,27 +50,29 @@
         }
 
         .nav-logo { 
-            width:90px;
+            width:80px; /* slightly reduced for mobile fit */
             cursor:pointer;
         }
 
         .nav-right {
             display:flex;
+            align-items:center;
         }
 
         .nav-right a {
-            margin:0 10px;
-            padding:12px;
+            margin:0 8px;
+            padding:10px;
             text-decoration:none;
             color:#ccc;
             font-weight:bold;
+            font-size:14px;
         }
 
         .nav-right a:hover { color:white; }
 
         .menu-toggle {
             display:none;
-            font-size:24px;
+            font-size:26px;
             cursor:pointer;
         }
 
@@ -130,47 +132,48 @@
             text-align:center;
         }
 
-        /* WHATSAPP */
+        /* ✅ WHATSAPP PNG (NO SHAPE CUT) */
         .whatsapp {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #25D366;
-            width:60px;
-            height:60px;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            border-radius:50%;
-            z-index:999;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            z-index: 999;
         }
 
-        .whatsapp:hover {
+        .whatsapp img {
+            width: 70px;
+            height: auto; /* keeps tail visible */
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.7));
+            transition: 0.3s;
+        }
+
+        .whatsapp img:hover {
             transform: scale(1.1);
         }
 
-        .whatsapp svg {
-            width:28px;
-            height:28px;
-            fill:white;
-        }
-
-        /* MOBILE */
+        /* MOBILE FIX */
         @media (max-width:768px){
+
             .menu-toggle { display:block; }
 
             .nav-right {
                 position:absolute;
                 top:60px;
-                right:0;
-                background:black;
+                left:0;
                 width:100%;
+                background:black;
                 display:none;
                 flex-direction:column;
+                text-align:center;
             }
 
             .nav-right.active { display:flex; }
+
+            .nav-right a {
+                padding:15px;
+                border-top:1px solid #222;
+                font-size:16px;
+            }
 
             .card { width:90%; }
         }
@@ -262,13 +265,11 @@
     <p>© 2026 LUCA Technologies | Built with Passion 🚀</p>
 </footer>
 
-<!-- WHATSAPP -->
+<!-- ✅ WHATSAPP PNG WITH AUTO MESSAGE -->
 <a class="whatsapp"
    href="https://wa.me/917702535277?text=Hi%20I%20visited%20your%20website%20and%20need%20a%20project"
    target="_blank">
-    <svg viewBox="0 0 32 32">
-        <path d="M16 3C9.4 3 4 8.2 4 14.7c0 2.6.9 5 2.4 6.9L4 29l7.6-2.4c1.8.9 3.8 1.4 5.9 1.4 6.6 0 12-5.2 12-11.7S22.6 3 16 3z"/>
-    </svg>
+    <img src="whatsapp.png" alt="WhatsApp">
 </a>
 
 <script>
