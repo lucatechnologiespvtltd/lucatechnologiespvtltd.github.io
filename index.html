@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>LUCA Technologies</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -14,7 +13,7 @@
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
         }
 
-        /* 🔥 LOADER */
+        /* LOADER */
         #loader {
             position: fixed;
             width: 100%;
@@ -27,7 +26,7 @@
         }
 
         .loader-logo {
-            width: 120px;
+            width: 180px;
             animation: zoomFade 2s ease-in-out;
         }
 
@@ -37,7 +36,7 @@
             100% { transform: scale(1); opacity: 0; }
         }
 
-        /* 🔥 NAVBAR */
+        /* NAVBAR */
         .navbar {
             display:flex;
             justify-content:space-between;
@@ -50,17 +49,9 @@
             z-index:1000;
         }
 
-        .nav-left {
-            display:flex;
-            align-items:center;
-            gap:10px;
-        }
-
-        .nav-logo { width:40px; }
-
-        .nav-title {
-            font-weight:bold;
-            letter-spacing:3px;
+        .nav-logo { 
+            width:60px;   /* 🔼 increased */
+            cursor:pointer;
         }
 
         .nav-right {
@@ -96,6 +87,10 @@
             padding:140px 20px;
         }
 
+        .hero img {
+            width:180px; /* 🔼 bigger logo */
+        }
+
         .btn {
             background:#00c3ff;
             padding:12px 30px;
@@ -128,19 +123,21 @@
             text-align:center;
         }
 
-        /* 🔥 ANIMATIONS */
-        .fade-in {
-            opacity:0;
-            transform:translateY(40px);
-            transition:all 0.8s ease;
+        /* WHATSAPP FLOAT */
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            font-size: 26px;
+            padding: 14px;
+            border-radius: 50%;
+            text-decoration: none;
+            z-index: 999;
         }
 
-        .fade-in.show {
-            opacity:1;
-            transform:translateY(0);
-        }
-
-        /* 🔥 MOBILE */
+        /* MOBILE */
         @media (max-width:768px){
 
             .menu-toggle { display:block; }
@@ -170,16 +167,17 @@
 
 <body>
 
-<!-- 🔥 LOADER -->
+<!-- LOADER -->
 <div id="loader">
     <img src="logo.png" class="loader-logo">
 </div>
 
-<!-- 🔥 NAVBAR -->
+<!-- NAVBAR -->
 <nav class="navbar">
-    <div class="nav-left">
-        <img src="logo.png" class="nav-logo">
-        <span class="nav-title">LUCA</span>
+    <div>
+        <a href="#home">
+            <img src="logo.png" class="nav-logo">
+        </a>
     </div>
 
     <div class="nav-right" id="navMenu">
@@ -195,7 +193,7 @@
 </nav>
 
 <section id="home" class="hero fade-in">
-    <img src="logo.png" style="width:120px;">
+    <img src="logo.png">
     <h2>Enterprise Software Development</h2>
     <p>We build scalable enterprise software, APIs, and cloud solutions.</p>
     <br>
@@ -247,7 +245,10 @@
     <p>© 2026 LUCA Technologies</p>
 </footer>
 
-<!-- 🔥 JS -->
+<!-- WHATSAPP BUTTON -->
+<a class="whatsapp" href="https://wa.me/917702535277" target="_blank">💬</a>
+
+<!-- JS -->
 <script>
 
 // Loader
